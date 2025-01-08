@@ -188,8 +188,9 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# adding /usr/sbin to status bar path so it can shutdown, access network tools, etc.
 bar {
-        status_command ~/bumblebee-status/bumblebee-status \
+        status_command env PATH=$PATH:/usr/sbin ~/bumblebee-status/bumblebee-status \
 	-m system cpu memory pulseout network datetime \
 	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" \
 	-t gruvbox-powerline
