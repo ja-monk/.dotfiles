@@ -1,8 +1,0 @@
-########## LAPTOP SPECIFIC BAR ##########
-bar {
-	status_command env PATH=$PATH:/usr/sbin ~/bumblebee-status/bumblebee-status \
-	-m sensors cpu memory brightness pulseout network battery datetime system \
-	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" \
-	-t gruvbox-powerline
-	#position top
-}
