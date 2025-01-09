@@ -191,20 +191,19 @@ bindsym $mod+r mode "resize"
 # adding /usr/sbin to status bar path so it can shutdown, access network tools, etc.
 bar {
         status_command env PATH=$PATH:/usr/sbin ~/bumblebee-status/bumblebee-status \
-	-m system cpu memory pulseout network datetime \
+	-m cpu memory pulseout network datetime system \
 	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" \
 	-t gruvbox-powerline
-	#-t nord-powerline
-	#-t solarized-powerline
 	#position top
 }
 
 # start + restore nitorgen for background image
 exec_always --no-startup-id nitrogen --restore
 
-# brightness controls for laptop
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+# brightness controls for laptop, after a change
+# send SIGUSR1 to bar to instantly refresh
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && ps -ef | grep bumblebee | grep python | awk '{ print $2 }' | xargs kill -SIGUSR1
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && ps -ef | grep bumblebee | grep python | awk '{ print $2 }' | xargs kill -SIGUSR1
 
 # ensure keyboard is GB
 exec_always --no-startup-id setxkbmap gb
