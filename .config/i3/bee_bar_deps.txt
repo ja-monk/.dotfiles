@@ -1,0 +1,8 @@
+iw
+python3-netifaces
+python3-tk
+python3-psutil
+gnome-system-monitor
+python3-pulsectl
+fonts-font-awesome
+fonts-powerline
