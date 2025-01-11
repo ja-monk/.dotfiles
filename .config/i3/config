@@ -125,7 +125,74 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+
+###### two monitor config ######
+exec_always --no-startup-id xrandr --output DP-3 --primary --mode 1920x1080 --pos 0x0
+exec_always --no-startup-id xrandr --output DP-2 --mode 1920x1080 --pos 1920x0 
+
+set $left_mon DP-3
+set $right_mon DP-2
+
+# define workspaces for monitor 1
+workspace 1 output $right_mon
+workspace 2 output $right_mon
+workspace 3 output $right_mon
+workspace 4 output $right_mon
+workspace 5 output $right_mon
+workspace 6 output $right_mon
+workspace 7 output $right_mon
+workspace 8 output $right_mon
+workspace 9 output $right_mon
+
+# define workspaces for monitor 2
+workspace 11 output $left_mon 
+workspace 12 output $left_mon 
+workspace 13 output $left_mon 
+workspace 14 output $left_mon 
+workspace 15 output $left_mon 
+workspace 16 output $left_mon 
+
+###### two monitor config ######
+exec_always --no-startup-id xrandr --output HDMI-1 --off
+exec_always --no-startup-id xrandr --output DP-3 --primary --mode 1920x1080 --pos 0x0
+exec_always --no-startup-id xrandr --output DP-2 --mode 1920x1080 --pos 1920x0 
+
+set $left_mon DP-3
+set $right_mon DP-2
+
+# define workspaces for monitor 1
+workspace 1 output $right_mon
+workspace 2 output $right_mon
+workspace 3 output $right_mon
+workspace 4 output $right_mon
+workspace 5 output $right_mon
+workspace 6 output $right_mon
+workspace 7 output $right_mon
+workspace 8 output $right_mon
+workspace 9 output $right_mon
+
+# define workspaces for monitor 2
+workspace 11 output $left_mon 
+workspace 12 output $left_mon 
+workspace 13 output $left_mon 
+workspace 14 output $left_mon 
+workspace 15 output $left_mon 
+workspace 16 output $left_mon 
+workspace 17 output $left_mon 
+workspace 18 output $left_mon 
+workspace 19 output $left_mon 
+workspace 17 output $left_mon 
+workspace 18 output $left_mon 
+workspace 19 output $left_mon 
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -137,7 +204,18 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+#bindsym $mod+0 workspace number $ws10
+
+# switch to workspace second monitor using ALT
+bindsym Mod1+1 workspace number $ws11
+bindsym Mod1+2 workspace number $ws12
+bindsym Mod1+3 workspace number $ws13
+bindsym Mod1+4 workspace number $ws14
+bindsym Mod1+5 workspace number $ws15
+bindsym Mod1+6 workspace number $ws16
+bindsym Mod1+7 workspace number $ws17
+bindsym Mod1+8 workspace number $ws18
+bindsym Mod1+9 workspace number $ws19
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -190,7 +268,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # adding /usr/sbin to status bar path so it can shutdown, access network tools, etc.
 bar {
-        status_command env PATH=$PATH:/usr/sbin ~/bumblebee-status/bumblebee-status \
+        status_command env PATH=$PATH:/usr/sbin /usr/bin/bumblebee-status \
 	-m cpu memory pulseout network datetime system \
 	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" \
 	-t gruvbox-powerline

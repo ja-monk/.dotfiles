@@ -1,3 +1,4 @@
+bumblebee-status
 iw
 python3-netifaces
 python3-tk
