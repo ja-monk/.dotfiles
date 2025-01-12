@@ -20,6 +20,9 @@ set $right_mon DP-2
 #exec --no-startup-id DISPLAY=":0" picom --config ~/.config/picom/picom.conf -b
 exec --no-startup-id DISPLAY=":0" picom --experimental-backends -b
 
+# ensure keyboard is GB
+exec_always --no-startup-id setxkbmap gb
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -97,6 +100,11 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# default boarder no title, include title for firefox private window and pad title due to rounded corners
+default_border pixel
+for_window [title=".*Private Browsing.*"] border normal
+for_window [title=".*Private Browsing.*"] title_format "  %title"
+
 #########################################################
 
 # Start XDG autostart .desktop files using dex. See also
@@ -129,7 +137,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id gnome-terminal
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -239,22 +247,15 @@ bar {
 }
 
 #################################################################
-# start + restore nitorgen for background image
-#exec_always --no-startup-id nitrogen --restore
-
 # brightness controls for laptop, after a change
 # send SIGUSR1 to bar to instantly refresh
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && ps -ef | grep bumblebee | grep python | awk '{ print $2 }' | xargs kill -SIGUSR1
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && ps -ef | grep bumblebee | grep python | awk '{ print $2 }' | xargs kill -SIGUSR1
 
-# ensure keyboard is GB
-exec_always --no-startup-id setxkbmap gb
-
 # additional shortcut bindings
 bindsym $mod+w exec firefox
-bindsym $mod+Shift+w exec firefox -private-window && sleep 0.5 &&  i3-msg 'title_format "Private | %title"'
-for_window [title=".*Private Browsing.*"] title_format "Private | %title"
+#bindsym $mod+Shift+w exec firefox -private-window && sleep 0.5 &&  i3-msg 'title_format "Private | %title"'
+#for_window [title=".*Private Browsing.*"] title_format "Private | %title"
+bindsym $mod+Shift+w exec firefox -private-window
 bindsym $mod+p exec pavucontrol
 
-# enable window icons for all windows
-#for_window [all] title_window_icon on
