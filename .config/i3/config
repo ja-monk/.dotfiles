@@ -223,14 +223,14 @@ bindsym $mod+r mode "resize"
 # adding /usr/sbin to status bar path so it can shutdown, access network tools, etc.
 bar {
         status_command env PATH=$PATH:/usr/sbin /usr/bin/bumblebee-status \
-	-m network cpu memory pulseout datetime system \
+	-m network sensors cpu memory pulseout datetime system \
 	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" \
 	-t gruvbox-powerline
 	#position top
 }
 
 # start + restore nitorgen for background image
-exec_always --no-startup-id nitrogen --restore
+#exec_always --no-startup-id nitrogen --restore
 
 # brightness controls for laptop, after a change
 # send SIGUSR1 to bar to instantly refresh
