@@ -1,0 +1,41 @@
+window:
+  padding:
+    x: 10
+    y: 10
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+opacity: 1
+
+font:
+  normal:
+    family: JetBrains Mono
+    style: Medium
+  bold:
+    family: JetBrains Mono
+    style: Bold
+  italic:
+    family: JetBrains Mono
+    style: Medium Italic
+  bold_italic:
+    family: JetBrains Mono
+    style: BoldItalic
+
+draw_bold_text_with_bright_colours: true
+
+selection:
+  save_to_clipboard: true
+
+shell:
+  program: /usr/bin/bash
+
+key_bindings:
+  - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
+
+import:
+  - ~/.config/alacritty/alacritty-theme/themes/afterglow.yaml
