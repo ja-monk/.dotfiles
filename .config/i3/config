@@ -250,7 +250,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command env PATH=$PATH:/usr/sbin /usr/bin/bumblebee-status \
 	-m network sensors cpu memory pulseout datetime system \
-	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" \
+	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" system.suspend="systemctl suspend" \
 	-t gruvbox-powerline
 	#position top
 }
