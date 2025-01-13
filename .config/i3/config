@@ -5,7 +5,8 @@
 
 set $mod Mod4
 
-font pango:DejaVu Sans Mono 12
+#font pango:DejaVu Sans Mono 12
+font pango:JetBrains Mono 12
 
 ############################################################
 ###### two monitor config ######
@@ -15,6 +16,9 @@ exec_always --no-startup-id xrandr --output HDMI-1 --off
 exec_always --no-startup-id sleep 2
 set $left_mon DP-3
 set $right_mon DP-2
+
+# set background
+exec_always --no-startup-id feh --bg-scale ~/Pictures/dark-sky.jpg
 
 # run picom composition manager on all monitors as daemon
 #exec --no-startup-id DISPLAY=":0" picom --config ~/.config/picom/picom.conf -b
@@ -101,9 +105,14 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # default boarder no title, include title for firefox private window and pad title due to rounded corners
-default_border pixel
+default_border pixel 3
 for_window [title=".*Private Browsing.*"] border normal
 for_window [title=".*Private Browsing.*"] title_format "  %title"
+
+# gap config
+gaps outer 5
+gaps inner 10
+
 
 #########################################################
 
