@@ -20,6 +20,7 @@ set $right_mon DP-2
 # set background
 exec_always --no-startup-id feh --bg-scale ~/Pictures/dark-sky.jpg
 
+
 # run picom composition manager on all monitors as daemon
 #exec --no-startup-id DISPLAY=":0" picom --config ~/.config/picom/picom.conf -b
 exec --no-startup-id DISPLAY=":0" picom --experimental-backends -b
@@ -93,26 +94,45 @@ bindsym Mod1+8 workspace number $ws18
 bindsym Mod1+9 workspace number $ws19
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1; workspace 1
+bindsym $mod+Shift+2 move container to workspace number $ws2; workspace 2
+bindsym $mod+Shift+3 move container to workspace number $ws3; workspace 3
+bindsym $mod+Shift+4 move container to workspace number $ws4; workspace 4
+bindsym $mod+Shift+5 move container to workspace number $ws5; workspace 5
+bindsym $mod+Shift+6 move container to workspace number $ws6; workspace 6
+bindsym $mod+Shift+7 move container to workspace number $ws7; workspace 7
+bindsym $mod+Shift+8 move container to workspace number $ws8; workspace 8
+bindsym $mod+Shift+9 move container to workspace number $ws9; workspace 9
+
+# move focused container to workspace
+bindsym Mod1+Shift+1 move container to workspace number $ws11; workspace 1
+bindsym Mod1+Shift+2 move container to workspace number $ws12; workspace 2
+bindsym Mod1+Shift+3 move container to workspace number $ws13; workspace 3
+bindsym Mod1+Shift+4 move container to workspace number $ws14; workspace 4
+bindsym Mod1+Shift+5 move container to workspace number $ws15; workspace 5
+bindsym Mod1+Shift+6 move container to workspace number $ws16; workspace 6
+bindsym Mod1+Shift+7 move container to workspace number $ws17; workspace 7
+bindsym Mod1+Shift+8 move container to workspace number $ws18; workspace 8
+bindsym Mod1+Shift+9 move container to workspace number $ws19; workspace 9
 
 # default boarder no title, include title for firefox private window and pad title due to rounded corners
-default_border pixel 3
+default_border pixel 4
 for_window [title=".*Private Browsing.*"] border normal
 for_window [title=".*Private Browsing.*"] title_format "  %title"
 
 # gap config
 gaps outer 5
 gaps inner 10
+smart_gaps on
 
+# mouse warping
+mouse_warping none
+
+# return to previous window when shortcut to current window is pressed again
+workspace_auto_back_and_forth yes
+
+# turn off screen timeout energy saver
+exec --no-startup-id xset s off -dmps
 
 #########################################################
 
@@ -193,9 +213,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -256,8 +276,7 @@ bar {
 }
 
 #################################################################
-# brightness controls for laptop, after a change
-# send SIGUSR1 to bar to instantly refresh
+# brightness controls for laptop, send SIGUSR1 to bar to instantly refresh
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && ps -ef | grep bumblebee | grep python | awk '{ print $2 }' | xargs kill -SIGUSR1
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && ps -ef | grep bumblebee | grep python | awk '{ print $2 }' | xargs kill -SIGUSR1
 
@@ -267,4 +286,7 @@ bindsym $mod+w exec firefox
 #for_window [title=".*Private Browsing.*"] title_format "Private | %title"
 bindsym $mod+Shift+w exec firefox -private-window
 bindsym $mod+p exec pavucontrol
+
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
