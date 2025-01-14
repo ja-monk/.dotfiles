@@ -31,3 +31,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set git config
+if [ -e /usr/bin/git ]; then
+	git config --global user.name "ja-monk"
+  	git config --global user.email "188385736+ja-monk@users.noreply.github.com"
+  	git config --global core.editor "vim"
+fi
