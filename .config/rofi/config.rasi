@@ -6,7 +6,7 @@ configuration {
 	icon-theme: "Papirus";
 	display-window: "go to";
 	sidebar-mode: true;
-	locatiob: 0;
+	location: 0;
 }
 
 @theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
