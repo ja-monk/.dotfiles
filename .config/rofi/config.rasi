@@ -1,0 +1,12 @@
+configuration {
+	modi: "run,window,ssh,combi";
+	font: "JetBrains Mono 12";
+	terminal: "alacritty";
+	show-icons: true;
+	icon-theme: "Papirus";
+	display-window: "go to";
+	sidebar-mode: true;
+	locatiob: 0;
+}
+
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
