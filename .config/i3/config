@@ -292,6 +292,7 @@ bindsym $mod+w exec firefox
 #bindsym $mod+Shift+w exec firefox -private-window && sleep 0.5 &&  i3-msg 'title_format "Private | %title"'
 #for_window [title=".*Private Browsing.*"] title_format "Private | %title"
 bindsym $mod+Shift+w exec firefox -private-window
+bindsym $mod+m exec firefox --new-window https://music.youtube.com/
 bindsym $mod+p exec pavucontrol
 
 bindsym $mod+Tab workspace next
