@@ -295,6 +295,8 @@ bindsym $mod+w exec firefox
 bindsym $mod+Shift+w exec firefox -private-window
 bindsym $mod+m exec firefox --new-window https://music.youtube.com/
 bindsym $mod+p exec pavucontrol
+bindsym $mod+x exec pcmanfm
+bindsym Control+Shift+Escape exec gnome-system-monitor
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
