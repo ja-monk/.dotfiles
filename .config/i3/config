@@ -121,8 +121,9 @@ for_window [title=".*Private Browsing.*"] border normal
 for_window [title=".*Private Browsing.*"] title_format "  %title"
 
 # gap config
-gaps outer 5
-gaps inner 10
+# outer gap added to inner gap
+gaps outer 0
+gaps inner 15
 smart_gaps on
 
 # mouse warping
