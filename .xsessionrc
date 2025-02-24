@@ -1,0 +1,7 @@
+######################################################################
+# This file is soruces by X sessions start, such as by LightDm, etc. #
+######################################################################
+
+if [ -f "$HOME/.profile" ]; then
+	. "$HOME/.profile"
+fi
