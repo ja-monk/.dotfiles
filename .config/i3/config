@@ -289,6 +289,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && ps -ef
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && ps -ef | grep bumblebee | grep python | awk '{ print $2 }' | xargs kill -SIGUSR1
 
 # additional shortcut bindings
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+w exec firefox
 #bindsym $mod+Shift+w exec firefox -private-window && sleep 0.5 &&  i3-msg 'title_format "Private | %title"'
 #for_window [title=".*Private Browsing.*"] title_format "Private | %title"
@@ -297,7 +299,5 @@ bindsym $mod+m exec firefox --new-window https://music.youtube.com/
 bindsym $mod+p exec pavucontrol
 bindsym $mod+x exec pcmanfm
 bindsym Control+Shift+Escape exec gnome-system-monitor
-
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Shift+s exec /home/james/bin/snip.sh &
 
