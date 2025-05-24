@@ -10,11 +10,11 @@ font pango:JetBrains Mono 12
 
 ############################################################
 ###### two monitor config ######
-exec_always --no-startup-id xrandr --output DP-3 --mode 1920x1080 --pos 0x0
+exec_always --no-startup-id xrandr --output DP-0 --mode 1920x1080 --pos 0x0
 exec_always --no-startup-id xrandr --output DP-2 --primary --mode 1920x1080 --pos 1920x0 
 exec_always --no-startup-id xrandr --output HDMI-1 --off
 exec_always --no-startup-id sleep 2
-set $left_mon DP-3
+set $left_mon DP-0
 set $right_mon DP-2
 
 # set background
