@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=50000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -117,4 +117,10 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+fi
+
+# launch into a tmux session by default on opening terminal if we are not 
+# already in tmux and not in a "dumb" shell 
+if [[ -z "$TMUX" && $TERM != "dumb" ]]; then
+	tmux attach 2>/dev/null || tmux new-session -t misc
 fi
