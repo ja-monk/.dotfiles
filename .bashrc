@@ -121,6 +121,6 @@ fi
 
 # launch into a tmux session by default on opening terminal if we are not 
 # already in tmux and not in a "dumb" shell 
-if [[ -z "$TMUX" && $TERM != "dumb" && -z $SSH_CONNECTION ]]; then
+if command -v tmux &> /dev/null && [[ -z "$TMUX" && $TERM != "dumb" && -z $SSH_CONNECTION ]]; then
 	tmux attach 2>/dev/null || tmux new-session -t misc
 fi
