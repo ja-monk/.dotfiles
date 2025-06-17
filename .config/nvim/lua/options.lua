@@ -70,11 +70,11 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- Colourscheme config
--- set colour scheme (when not using a theme plugin)
+  -- set colour scheme (when not using a theme plugin)
 vim.cmd.colorscheme 'unokai'
--- set no background so colour matches terminal
+  -- set no background so colour matches terminal
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
--- change comment colour from colourscheme to make them more visible
+  -- change comment colour from colourscheme to make them more visible
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#999999' })
 
 -- vim: ts=2 sts=2 sw=2 et
