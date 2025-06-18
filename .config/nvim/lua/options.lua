@@ -69,6 +69,12 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- set tab config
+vim.o.expandtab = true   -- use spaces instead of tab character
+vim.o.softtabstop = 4    -- set tab to insert 4 spaces
+vim.o.shiftwidth = 4     -- indent with '>' uses 4 spaces
+vim.o.tabstop = 4        -- visually represent tab characters as 4 characters wide
+
 -- Colourscheme config
   -- set colour scheme (when not using a theme plugin)
 vim.cmd.colorscheme 'unokai'
