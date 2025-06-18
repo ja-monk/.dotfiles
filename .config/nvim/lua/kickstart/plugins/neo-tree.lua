@@ -19,11 +19,13 @@ return {
                 mappings = {
                     ['\\'] = 'close_window',
                 },
+                position = 'right'
             },
             filtered_items = {
                 hide_dotfiles = false,
                 hide_gitignored = false,
             },
         },
+        close_if_last_window = false,
     },
 }
