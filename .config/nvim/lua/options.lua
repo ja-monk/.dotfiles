@@ -17,7 +17,7 @@ vim.o.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+    vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -70,17 +70,17 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- set tab config
-vim.o.expandtab = true   -- use spaces instead of tab character
-vim.o.softtabstop = 4    -- set tab to insert 4 spaces
-vim.o.shiftwidth = 4     -- indent with '>' uses 4 spaces
-vim.o.tabstop = 4        -- visually represent tab characters as 4 characters wide
+vim.o.expandtab = true -- use spaces instead of tab character
+vim.o.softtabstop = 4 -- set tab to insert 4 spaces
+vim.o.shiftwidth = 4 -- indent with '>' uses 4 spaces
+vim.o.tabstop = 4 -- visually represent tab characters as 4 characters wide
 
 -- Colourscheme config
-  -- set colour scheme (when not using a theme plugin)
+-- set colour scheme (when not using a theme plugin)
 vim.cmd.colorscheme 'unokai'
-  -- set no background so colour matches terminal
+-- set no background so colour matches terminal
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  -- change comment colour from colourscheme to make them more visible
+-- change comment colour from colourscheme to make them more visible
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#999999' })
 
 -- vim: ts=2 sts=2 sw=2 et
