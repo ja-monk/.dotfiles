@@ -276,6 +276,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # adding /usr/sbin to status bar path so it can shutdown, access network tools, etc.
 bar {
+        font pango:JetBrains Mono 12
+        tray_output primary
         status_command env PATH=$PATH:/usr/sbin /usr/bin/bumblebee-status \
 	-m network sensors cpu memory pulseout datetime system \
 	-p datetime.format="%d/%m/%y %H:%M" sensors.show_freq="false" memory.format="{percent:05.02f}%" system.suspend="systemctl suspend" \
