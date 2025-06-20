@@ -5,31 +5,31 @@
 
 set $mod Mod4
 
-#font pango:DejaVu Sans Mono 12
 font pango:JetBrains Mono 12
-
-############################################################
-###### two monitor config ######
-exec_always --no-startup-id xrandr --output DP-0 --mode 1920x1080 --pos 0x0
-exec_always --no-startup-id xrandr --output DP-2 --primary --mode 1920x1080 --pos 1920x0 
-exec_always --no-startup-id xrandr --output HDMI-1 --off
-exec_always --no-startup-id sleep 2
-set $left_mon DP-0
-set $right_mon DP-2
-
-# set background
-exec_always --no-startup-id feh --bg-scale ~/Pictures/dark-sky.jpg
-
-
-# run picom composition manager on all monitors as daemon
-#exec --no-startup-id DISPLAY=":0" picom --config ~/.config/picom/picom.conf -b
-exec --no-startup-id DISPLAY=":0" picom --experimental-backends -b
 
 # ensure keyboard is GB
 exec_always --no-startup-id setxkbmap gb
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+#-----   [[ monitor config ]]   -----#
+# set monitor position
+exec_always --no-startup-id xrandr --output DP-0 --mode 1920x1080 --pos 0x0 \
+--output DP-2 --primary --mode 1920x1080 --pos 1920x0 \
+--output HDMI-0 --off
+
+# set background
+# exec_always --no-startup-id sleep 2
+exec_always --no-startup-id feh --bg-scale ~/Pictures/dark-sky.jpg
+
+# set varibles for each monitor to use in config
+set $left_mon DP-0
+set $right_mon DP-2
+
+# run picom composition manager on all monitors as daemon
+exec --no-startup-id DISPLAY=":0" picom --experimental-backends -b
+
+#-----   [[ workspace setup ]]   -----#
+# Define names for workspaces which we use to configure key bindings
+# these names can be changed here later, such as "1: Browser"
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -173,31 +173,22 @@ bindsym $mod+Return exec --no-startup-id alacritty
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
-
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
 # rofi shortcuts
 bindsym $mod+d exec rofi -show run
 bindsym $mod+g exec rofi -show window
 bindsym $mod+apostrophe exec rofi -show ssh
 
-# change focus
+# change focus with vim keys
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# alternative cursor keys change focus binding
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -205,11 +196,11 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# alternative cursor keys move window binding
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+n split h
@@ -237,7 +228,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -259,10 +249,10 @@ mode "resize" {
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        #bindsym Left resize shrink width 10 px or 10 ppt
+        #bindsym Down resize grow height 10 px or 10 ppt
+        #bindsym Up resize shrink height 10 px or 10 ppt
+        #bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -272,8 +262,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Status bar
 # adding /usr/sbin to status bar path so it can shutdown, access network tools, etc.
 bar {
         font pango:JetBrains Mono 12
@@ -294,8 +283,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && ps -
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+w exec firefox
-#bindsym $mod+Shift+w exec firefox -private-window && sleep 0.5 &&  i3-msg 'title_format "Private | %title"'
-#for_window [title=".*Private Browsing.*"] title_format "Private | %title"
 bindsym $mod+Shift+w exec firefox -private-window
 bindsym $mod+m exec firefox --new-window https://music.youtube.com/
 bindsym $mod+p exec pavucontrol
