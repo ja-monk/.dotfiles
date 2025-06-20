@@ -1,15 +1,13 @@
-##################################################################################################
-######                                  Alias File                                          ######
-##################################################################################################
-
+#-----     [[ Alias File ]]     -----#
 alias rm='rm -i'
 alias cp='cp -i'
 alias ll='ls -lrth'
+alias la='ls -A'
 alias cdomv='cd /mnt/omv-share'
 
 # set aliases for nvim if installed
 if command -v nvim &> /dev/null; then
-	alias vim='nvim'
-	alias vi='nvim'
-	alias v='nvim'
+    alias vim='nvim'
+    alias vi='nvim'
+    alias v='nvim'
 fi
