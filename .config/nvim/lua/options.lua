@@ -71,9 +71,9 @@ vim.o.confirm = true
 
 -- set tab config
 vim.o.expandtab = true -- use spaces instead of tab character
-vim.o.softtabstop = 4 -- set tab to insert 4 spaces
-vim.o.shiftwidth = 4 -- indent with '>' uses 4 spaces
-vim.o.tabstop = 4 -- visually represent tab characters as 4 characters wide
+vim.o.softtabstop = 4  -- set tab to insert 4 spaces
+vim.o.shiftwidth = 4   -- indent with '>' uses 4 spaces
+vim.o.tabstop = 4      -- visually represent tab characters as 4 characters wide
 
 -- Colourscheme config
 -- set colour scheme (when not using a theme plugin)
@@ -82,5 +82,10 @@ vim.cmd.colorscheme 'unokai'
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 -- change comment colour from colourscheme to make them more visible
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#999999' })
-
--- vim: ts=2 sts=2 sw=2 et
+-- config for builtin colour scheme to work with todo-comments pluging
+vim.api.nvim_set_hl(0, "TodoBgTodo", { bold = true, underline = true })
+vim.api.nvim_set_hl(0, "TodoBgNote", { bold = true, underline = true })
+vim.api.nvim_set_hl(0, "TodoBgFix",  { bold = true, underline = true })
+vim.api.nvim_set_hl(0, "TodoBgWarn", { bold = true, underline = true })
+vim.api.nvim_set_hl(0, "TodoBgTest", { bold = true, underline = true })
+vim.api.nvim_set_hl(0, "TodoFgTest", { bold = true, underline = true })
