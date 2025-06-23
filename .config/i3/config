@@ -87,6 +87,8 @@ bindsym Mod1+1 workspace $ws11
 bindsym Mod1+2 workspace $ws12
 bindsym Mod1+3 workspace $ws13
 bindsym Mod1+4 workspace $ws14
+# additional binding for Alt + 4 due to output, see "xev | grep -A2 --line-buffered KeyPress"
+bindsym Mod1+Mod5+KP_End workspace $ws14
 bindsym Mod1+5 workspace $ws15
 bindsym Mod1+6 workspace $ws16
 bindsym Mod1+7 workspace $ws17
@@ -109,6 +111,8 @@ bindsym Mod1+Shift+1 move container to workspace $ws11; workspace $ws11
 bindsym Mod1+Shift+2 move container to workspace $ws12; workspace $ws12
 bindsym Mod1+Shift+3 move container to workspace $ws13; workspace $ws13
 bindsym Mod1+Shift+4 move container to workspace $ws14; workspace $ws14
+# additional binding for Alt + 4 due to output, see "xev | grep -A2 --line-buffered KeyPress"
+bindsym Mod1+Mod5+Shift+KP_End move container to workspace $ws14; workspace $ws14
 bindsym Mod1+Shift+5 move container to workspace $ws15; workspace $ws15
 bindsym Mod1+Shift+6 move container to workspace $ws16; workspace $ws16
 bindsym Mod1+Shift+7 move container to workspace $ws17; workspace $ws17
