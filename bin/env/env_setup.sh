@@ -2,7 +2,23 @@
 
 # NOTE: programs to be installed and config directory/repo name defined here 
 config_dir=".dotfiles"
-progs=(git tmux stow curl unzip npm ripgrep fd-find make gcc xclip fontconfig fonts-jetbrains-mono)
+progs=(
+    git
+    tmux
+    stow
+    curl
+    unzip
+    npm
+    ripgrep
+    fd-find
+    make
+    gcc
+    xclip
+    fontconfig
+    fonts-jetbrains-mono
+    python3
+    python-is-python3
+)
 
 # NOTE: if using in remote mode, git_details.txt file is required. See git_details.example for template
 
