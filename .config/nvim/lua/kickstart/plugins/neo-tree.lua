@@ -27,6 +27,8 @@ return {
                 hide_dotfiles = false,
                 hide_gitignored = false,
             },
+            group_empty_dirs = true,
+            scan_mode = "deep",
         },
         close_if_last_window = false,
     },
