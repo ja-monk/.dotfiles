@@ -57,7 +57,7 @@ install_progs(){
     fi
 
     # install jetbrains mono nerd font as this is used in my config
-    if fc-list | grep "JetBrainsMonoNerdFont" &> /dev/null; then
+    if fc-list | grep -q "JetBrainsMonoNerdFont"; then
         echo "JetBrainsMono Nerd Font already installed, skipping."
     else
         echo "Installing JetBrainsMono Nerd Font"
@@ -173,7 +173,9 @@ remote_install_stow() {
 
     ssh -o ControlPath=/tmp/ssh_session_%h_%p_%r $host "\
     config_dir=$config_dir; \
+    $(declare -f install_progs); \
     $(declare  -f stow_config); \
+    install_progs; \
     stow_config"
 }
 
