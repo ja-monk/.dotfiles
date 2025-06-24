@@ -1,0 +1,4 @@
+# github repo SSH link
+config_repo="git@github.com:user/example.git"
+# github PAT
+token="xxxxxxxxxxx"
