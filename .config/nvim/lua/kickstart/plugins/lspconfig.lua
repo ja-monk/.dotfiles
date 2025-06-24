@@ -209,7 +209,10 @@ return {
             local servers = {
                 -- NOTE: See `:help lspconfig-all` for a list of all the pre-configured LSPs
                 -- gopls = {},
-                pyright = {},
+                pyright = {
+                    venvPath = ".",
+                    venv = ".venv",
+                },
                 --jdtls = {},   -- requires java 21
                 bashls = {},
 
@@ -268,4 +271,3 @@ return {
         end,
     },
 }
--- vim: ts=2 sts=2 sw=2 et
