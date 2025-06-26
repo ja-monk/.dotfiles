@@ -1,6 +1,10 @@
 ######################################################################
-# This file is soruces by X sessions start, such as by LightDm, etc. #
+# This file is sourced by X sessions start, such as by LightDm, etc. #
 ######################################################################
+
+# swap caps lock & esc key, clear options first
+setxkbmap -option ''
+setxkbmap -option caps:swapescape
 
 if [ -f "$HOME/.profile" ]; then
 	. "$HOME/.profile"
