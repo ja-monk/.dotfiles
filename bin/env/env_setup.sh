@@ -67,7 +67,7 @@ install_progs(){
         sudo rm -rf /opt/nvim-linux-x86_64
         sudo mkdir -p /opt/nvim-linux-x86_64
         sudo chmod a+rX /opt/nvim-linux-x86_64
-        sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+        sudo tar --no-same-owner -C /opt -xzf nvim-linux-x86_64.tar.gz
         sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
         rm -f ./nvim-linux-x86_64.tar.gz
     fi
