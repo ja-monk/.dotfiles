@@ -2,6 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# source omarchy defaults if they exist
+if [ -f ~/.local/share/omarchy/default/bash/rc ]; then
+  source ~/.local/share/omarchy/default/bash/rc
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -40,9 +45,7 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
+# colored prompt
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -56,9 +59,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# source git prompt file to use in promot
+# source git prompt file to use in prompt
 . ~/.git-prompt.sh
 
+# set prompt
 if [ "$color_prompt" = yes ]; then
 	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(__git_ps1)\n\[\033[01;37m\]❯ '
 else
@@ -79,8 +83,8 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
