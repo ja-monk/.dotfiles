@@ -35,6 +35,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Show LSP diagnostic messages in floating window
 vim.keymap.set('n', 'gs', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Show LSP diagnostic message'})
 
+-- Reload LSP
+vim.keymap.set('n', 'grl', '<cmd>LspRestart<CR>', {desc = 'LSP [R]e[L]oad'})
+
 -- [[ Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
