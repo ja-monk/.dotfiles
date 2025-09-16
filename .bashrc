@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# source omarchy defaults if they exist
+# source omarchy shell defaults if they exist
 if [ -f ~/.local/share/omarchy/default/bash/rc ]; then
   source ~/.local/share/omarchy/default/bash/rc
 fi
