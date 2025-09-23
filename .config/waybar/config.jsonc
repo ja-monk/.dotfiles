@@ -8,9 +8,11 @@
   "modules-center": ["clock", "custom/update"],
   "modules-right": [
     "group/tray-expander",
-    "network",
-    "pulseaudio",
+    "temperature",
+    "memory",
     "cpu",
+    "pulseaudio",
+    "network",
     "battery"
   ],
   "hyprland/workspaces": {
@@ -61,15 +63,28 @@
     "signal": 7,
     "interval": 3600
   },
-
   "cpu": {
-    "interval": 5,
-    "format": "󰍛",
-    "on-click": "alacritty -e btop"
+    "interval": 2,
+    "format": "󰍛 {usage}%",
+    "on-click": "alacritty -e btop",
+    "justify": "center"
+  },
+  "memory": {
+    "interval": 2,
+    "format": "  {percentage}% ",
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G  {percentage}%",
+    "on-click": "alacritty -e btop",
+    "justify": "center"
+  },
+  "temperature": {
+    "critical-threshold": 65,
+    "format": " {temperatureC}°C  ",
+    "tooltip": false,
+    "justify": "center"
   },
   "clock": {
     "format": "{:L%A %H:%M}",
-    "format-alt": "{:L%d %B W%V %Y}",
+    "format-alt": "{:L%d %B %Y}",
     "tooltip": false,
     "on-click-right": "omarchy-cmd-tzupdate"
   },
@@ -77,7 +92,7 @@
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format": "{icon}",
     "format-wifi": "{icon}",
-    "format-ethernet": "󰀂",
+    "format-ethernet": "󰲝",
     "format-disconnected": "󰖪",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
@@ -113,12 +128,12 @@
     "on-click": "blueberry"
   },
   "pulseaudio": {
-    "format": "{icon}",
+    "format": "{icon} {volume}%",
     "on-click": "alacritty --class=Wiremix -e wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
-    "format-muted": "󰝟",
+    "format-muted": "",
     "format-icons": {
       "default": ["", "", ""]
     }
