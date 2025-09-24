@@ -77,9 +77,13 @@ vim.o.tabstop = 4      -- visually represent tab characters as 4 characters wide
 
 -- Colourscheme config
 -- set colour scheme (when not using a theme plugin)
-vim.cmd.colorscheme 'unokai'
--- set no background so colour matches terminal
+--vim.cmd.colorscheme 'unokai'
+vim.cmd.colorscheme 'retrobox'
+-- set no background for main window
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+-- set no background for sign column & cursor line number 
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'CursorLineNr', { bg = 'none' })
 -- change comment colour from colourscheme to make them more visible
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#999999' })
 -- config for builtin colour scheme to work with todo-comments pluging
