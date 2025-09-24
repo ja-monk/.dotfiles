@@ -12,7 +12,10 @@ while [[ $# -gt 0 ]]; do
             shift
         ;;
         *)
-            notify-send "Unrecognised argument to screenshot: $1"
+            notify-send \
+                "Unrecognised argument to screenshot: $1" \
+                -u critical \
+                -t 3000
             exit 1
         ;;
     esac
@@ -31,6 +34,7 @@ done
     fi
 }
 
+# edit with satty if --edit flag passed, otherwise just copy
 if [[ "$edit" == true ]]; then
     pkill slurp || hyprshot -m ${1:-region} --raw |
       satty --filename - \
