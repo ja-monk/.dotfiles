@@ -38,6 +38,21 @@ vim.keymap.set('n', 'gs', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = '
 -- Reload LSP
 vim.keymap.set('n', 'grl', '<cmd>LspRestart<CR>', {desc = 'LSP [R]e[L]oad'})
 
+-- create command to copy full or relative file path to clipboard
+vim.api.nvim_create_user_command('CopyFilePath', function(opts)
+    local path
+        if opts.args == "r" then            -- pass r for relative path
+            path = vim.fn.expand('%')
+        else
+            path = vim.fn.expand('%:p')     -- else full path
+        end
+    vim.fn.setreg('+', path)                -- copy to system clipboard
+    print("Copied to clipboard: " .. path)
+end, { nargs = "?" })
+-- keymap for command that copied path
+vim.keymap.set('n', '<leader>cp', '<cmd>CopyFilePath<CR>', {desc = '[C]opy full [P]ath to clipboard'})
+vim.keymap.set('n', '<leader>cr', '<cmd>:CopyFilePath r<CR>', {desc = '[C]opy [R]elative path to clipboard'})
+
 -- [[ Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
