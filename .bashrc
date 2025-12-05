@@ -122,3 +122,6 @@ fi
 
 # ignore EOF in termninal to stop ctrl + d from exiting shell
 set -o ignoreeof
+
+# add go to path
+export PATH=$PATH:/usr/local/go/bin
