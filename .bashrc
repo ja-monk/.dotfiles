@@ -123,5 +123,8 @@ fi
 # ignore EOF in termninal to stop ctrl + d from exiting shell
 set -o ignoreeof
 
+export EDITOR=vim
+export VISUAL=vim
+
 # add go to path
 export PATH=$PATH:/usr/local/go/bin
