@@ -120,6 +120,11 @@ if command -v tmux &> /dev/null && [[ -z "$TMUX" && $TERM != "dumb" && -z $SSH_C
 	tmux attach 2>/dev/null || tmux new-session -t misc
 fi
 
+# fzf shell integration for key bindings and fuzzy completion
+if command -v fzf &> /dev/null; then
+    eval "$(fzf --bash &>/dev/null)" 
+fi
+
 # ignore EOF in termninal to stop ctrl + d from exiting shell
 set -o ignoreeof
 
