@@ -13,11 +13,26 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
--- Sync clipboard between OS and Neovim.
+-- Sync clipboard between OS and Neovim
+--  Send copied text to local terminal via OSC52 if in ssh session
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  See `:help 'clipboard'`
 vim.schedule(function()
     vim.o.clipboard = 'unnamedplus'
+    -- overwrite clipboard with OSC52 if in ssh session
+    if vim.env.SSH_CONNECTION then
+        local osc52 = require('vim.ui.clipboard.osc52')
+        vim.g.clipboard = {
+            copy = {
+                ['+'] = osc52.copy('+'),
+                ['*'] = osc52.copy('*'),
+            },
+            paste = {
+                ['+'] = osc52.paste('+'),
+                ['*'] = osc52.paste('*'),
+            },
+        }
+    end
 end)
 
 -- Enable break indent
