@@ -39,7 +39,7 @@ require('lazy').setup({
 
     require 'kickstart/plugins/treesitter',
 
-    --require 'kickstart/plugins/conform', -- auto code formatter
+    require 'kickstart/plugins/conform', -- auto code formatter
     --require 'kickstart/plugins/tokyonight', -- theme plugin
 
     -- Additional kickstart plugins
