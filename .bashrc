@@ -133,3 +133,5 @@ export VISUAL=vim
 
 # add go to path
 export PATH=$PATH:/usr/local/go/bin
+
+. "$HOME/.local/bin/env"
