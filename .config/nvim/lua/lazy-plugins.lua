@@ -10,52 +10,15 @@
 
 -- Plugins added in the below "require" block
 require('lazy').setup({
-    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-    'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+    -- The import below automatically adds plugins, configuration, etc from `lua/plugins/*.lua`
+    -- to disable a plugin set `enabled = false` in the returned table in it's .lua file
+    { import = 'plugins' },
 
-    -- NOTE: Plugins can also be added by using a table,
-    -- with the first argument being the link and the following
-    -- keys can be used to configure plugin behavior/loading/etc.
-
-    -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
-
-    -- modular approach: using `require 'path/name'` will
-    -- include a plugin definition from file lua/path/name.lua
-
-    -- plugins included with kickstart
-    require 'kickstart/plugins/gitsigns',
-
-    require 'kickstart/plugins/which-key',
-
-    require 'kickstart/plugins/telescope',
-
-    require 'kickstart/plugins/lspconfig',
-
-    require 'kickstart/plugins/blink-cmp',
-
-    require 'kickstart/plugins/todo-comments',
-
-    require 'kickstart/plugins/mini',
-
-    require 'kickstart/plugins/treesitter',
-
-    require 'kickstart/plugins/conform', -- auto code formatter
-    --require 'kickstart/plugins/tokyonight', -- theme plugin
-
-    -- Additional kickstart plugins
-    --require 'kickstart.plugins.debug', -- debugger
-    require 'kickstart.plugins.indent_line',
-    require 'kickstart.plugins.lint',
-    require 'kickstart.plugins.autopairs',
-    require 'kickstart.plugins.neo-tree',
-
-    -- The import below automatically adds plugins, configuration, etc from `lua/custom/plugins/*.lua`
-    { import = 'custom.plugins' },
-
-    -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
-    -- Or use telescope!
-    -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
-    -- you can continue same window with `<space>sr` which resumes last telescope search
+    -- Additional plugins can be explicitly required like below
+    --require 'plugins.indent_line',
+    --require 'plugins.lint',
+    --require 'plugins.autopairs',
+    --require 'plugins.neo-tree',
 }, {
     ui = {
         -- If you are using a Nerd Font: set icons to an empty table which will use the

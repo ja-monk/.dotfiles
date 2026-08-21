@@ -1,5 +1,7 @@
 return {
-    { -- Autoformat
+    {
+        enabled = false,
+        -- Autoformat
         'stevearc/conform.nvim',
         event = { 'BufWritePre' },
         cmd = { 'ConformInfo' },
