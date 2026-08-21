@@ -90,17 +90,25 @@ vim.o.softtabstop = 4  -- set tab to insert 4 spaces
 vim.o.shiftwidth = 4   -- indent with '>' uses 4 spaces
 vim.o.tabstop = 4      -- visually represent tab characters as 4 characters wide
 
--- Colourscheme config
+-- [[ Colourscheme config ]]
+-- enable 24-bit RGB colour 
+vim.o.termguicolors = true
+
 -- set colour scheme (when not using a theme plugin)
---vim.cmd.colorscheme 'unokai'
 vim.cmd.colorscheme 'retrobox'
+
 -- set no background for main window
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+
 -- set no background for sign column & cursor line number 
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'CursorLineNr', { bg = 'none' })
+
 -- change comment colour from colourscheme to make them more visible
-vim.api.nvim_set_hl(0, 'Comment', { fg = '#999999' })
+vim.api.nvim_set_hl(0, 'Comment', { fg = '#CCCCCC' })
+-- change python string colour to match comments since multiline comments are strings
+vim.api.nvim_set_hl(0, 'pythonString', { fg = '#CCCCCC' })
+
 -- config for builtin colour scheme to work with todo-comments pluging
 vim.api.nvim_set_hl(0, "TodoBgTodo", { bold = true, underline = true })
 vim.api.nvim_set_hl(0, "TodoBgNote", { bold = true, underline = true })
