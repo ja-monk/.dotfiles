@@ -37,3 +37,5 @@ if [ -e /usr/bin/git ]; then
   	git config --global user.email "188385736+ja-monk@users.noreply.github.com"
   	git config --global core.editor "vim"
 fi
+
+. "$HOME/.local/bin/env"
